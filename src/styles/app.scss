@@ -1,0 +1,19 @@
+@font-face {
+    font-family: inter-regular;
+    src: local("inter-regular"),
+        url("../assets/fonts/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: inter-bold;
+    src: local("inter-bold"),
+        url("../assets/fonts/Inter-Bold.ttf") format("truetype");
+}
+
+.inter-regular {
+    font-family: "inter-regular";
+}
+
+.inter-bold {
+    font-family: "inter-bold";
+}
