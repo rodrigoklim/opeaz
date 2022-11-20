@@ -11,13 +11,20 @@
           width="100"
         />
       </div>
-
+      <v-spacer></v-spacer>
+      <v-btn
+        v-if="!searchDrawer || this.filmList.length"
+        class="inter-bold font-size-1"
+        text
+        color="primary"
+        @click="searchDrawer = !searchDrawer"
+      >
+        Search
+      </v-btn>
       <v-spacer></v-spacer>
       <v-btn
         class="inter-regular rounded-lg"
         target="_blank"
-        text
-        style="background-color: #1f3457"
         @click="openDrawer = !openDrawer"
       >
         <v-icon>mdi-movie-open-star</v-icon>
@@ -32,30 +39,24 @@
       floating
       style="width: 50%"
     >
-      <div class="ma-16 pa-8 inter-bold" style="font-size: 4rem">
+      <div class="ma-16 pa-8 inter-bold">
         <div class="d-flex flex-row">
           <v-icon color="primary" size="200">mdi-magnify</v-icon>
           <div class="d-flex flex-column">
-            <div class="self-bottom" style="font-size: 3rem">Search by</div>
-            <div
-              class="secondary--text"
-              style="font-size: 8rem; line-height: 8rem"
-            >
-              Title
-            </div>
+            <div class="small-title">Search by</div>
+            <div class="secondary--text large-title">Title</div>
           </div>
         </div>
         <v-text-field
           flat
           solo
-          class="pa-2 pt-3 mt-6 inter-regular elevation-3 rounded-pill"
+          class="font-size-1-2 pa-2 pt-3 mt-6 inter-regular elevation-3 rounded-pill v-text-field--full-width"
           :messages="
             errorMessage ? errorMessage : 'Enter the film you want to search'
           "
           name="film"
           v-model="searchedTitle"
           :loading="loading"
-          style="width: 100%; font-size: 1.5rem"
           @keyup.enter="searchFilm"
         >
           <v-icon
@@ -80,15 +81,14 @@
       width="400"
     >
       <div
-        class="flex inter-bold pt-15 pl-4 text-bold"
-        style="background-color: #3979f2; color: white; font-size: larger"
+        class="flex inter-bold pt-15 pl-4 text-bold secondary white--text font-size-1"
       >
         My Favorites
       </div>
       <svg
+        class="rotate-svg"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        style="transform: rotate(180deg)"
       >
         <path
           fill="#3979f2"
